@@ -61,3 +61,29 @@ Each prediction is written and saved **before** the run it is about.
 - Run 6, point 1 (pattern test passes): **right**.
 - Point 2: 12 of 13 with all 28 quarters, Escalade the gap: **right**. Jumps for iRobot, Helen of Troy, EA and none for Colgate, Clorox, Hershey: **right**. But I missed the jumps at Columbia, Deckers and Logitech.
 - Point 3: **wrong**. Nobody names Toys "R" Us or Babies "R" Us, not even Escalade or EA. Rule 3 drops no one.
+
+## Session 4 (24 Nov 2026): 2014 jumps, index, chart, trends
+
+### Run 7: where are the 2014 jumps (Columbia, Deckers, Logitech, JAKKS), and is Logitech clean from 2015 Q1?
+
+**Claude's prediction:**
+
+1. **Columbia:** the jump starts in 2014 Q1 and lasts all four quarters of 2014, then growth falls back to single digits in 2015. It is a permanent level shift (the business got bigger), not a one-off spike. Cause: the China joint venture (consolidated from Jan 2014) and prAna (bought mid-2014). The 2016 10-K should confirm at least prAna.
+2. **Deckers:** the +24 % in 2014 Q2–Q3 is organic growth (UGG and HOKA) and lasts; the "break" is the year-end change in 2014, which only changes fiscal labels, not calendar quarters. Cause stays "from memory" unless the 10-K mentions it.
+3. **Logitech:** the −21 % in 2014 Q1 is a seam: 2013 quarters were never restated without Lifesize, later ones were. From 2015 Q1 the series is clean (one tag, quarters add up to the year, no jumps over 20 %), so Logitech **passes** from 2015 Q1. The 2016 10-K will confirm Lifesize as a discontinued operation.
+4. **JAKKS:** the jump is in 2014 Q3–Q4 (Q4 about +80 %), driven by Disney *Frozen* products, and it does **not** persist: 2015 is lower than 2014. Cause "from memory" (no JAKKS 10-K downloaded); the XBRL file shows no big acquisition in 2014.
+
+**Result (Run 7):** see "How Claude's prediction did" in `notes/jump_check.md`. In short: Columbia right; Deckers partly right (missed the July 2014 German distributor purchase); Logitech seam right but "clean from 2015 Q1" wrong; JAKKS spike right but a quarter later than I said (2014 Q4–2015 Q1).
+
+### Run 8: revenue index (2016 = 100), chart of treated vs donors, pre-period trend table
+
+**Claude's prediction** (index = revenue ÷ same quarter of 2016 × 100, first-reported; trend = slope of log index on time, 2015 Q1–2017 Q2, in % per year):
+
+1. **Mattel** falls through the pre-period: index about 105 in 2015, about 95–100 by 2017 Q2; trend about **−4 % a year**. Clear drop after the TRU bankruptcy: index about 85 in 2017 Q4 and 75–85 through 2018–2019.
+2. **Hasbro** rises strongly before: index about 85–90 in 2015, about 105 in 2017 Q2; trend about **+10 % a year**, the steepest of all 11 companies. Then a fall to about 85–95 in 2018.
+3. **JAKKS** falls before: 2015 Q1 about 119 (the *Frozen* tail), trend about **−6 % a year**; about 80–90 after.
+4. **Donors** (pre-period trend): Fossil the steepest fall (about −10 % a year); Colgate slightly negative (strong dollar in 2015); Deckers, WD-40 about flat; Clorox, Hershey +1 to +3 %; Garmin, Columbia +5 to +7 %. So the donors span roughly −10 % to +7 % a year.
+5. Consequence I expect for later: **Hasbro's pre-trend lies above every donor**, so no weighted average of donors can follow it (a synthetic control can only average, not extrapolate). Hasbro is the most likely "no credible twin". Mattel and JAKKS lie inside the donor range, with Fossil getting a large weight.
+6. Only Hasbro 2017 Q1 has 14 weeks among the 11 companies' quarters in the window; no other quarter is longer than 98 days.
+
+**Result (Run 8):** see "How Claude's prediction did" in `notes/index_findings.md`. In short: the treated companies' levels and trends were right, and Hasbro's pre-trend is above every donor, as predicted. Garmin and Columbia grow more slowly than I said. "Only Hasbro has a 14-week quarter" was wrong: Garmin's 2016 Q4 base quarter does too.

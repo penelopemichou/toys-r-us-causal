@@ -24,7 +24,9 @@ You (Claude) write the code. I'm a beginner in Python but comfortable with stati
   2. Drop any company with a big acquisition, merger, spin-off or IPO in 2013–2019 that makes revenue jump, or without full quarterly data 2013 Q1–2019 Q4.
   3. Download the SEC companyfacts file plus the 2016 and 2017 10-Ks. Search every spelling of Toys R Us and Babies R Us (with and without quotes, apostrophes and "&"). Drop any company that names them as a customer.
 - **First treated quarter:** 2017 Q4. 2017 Q3 is a transition quarter: left out of the main run, tested as a sensitivity check.
-- **Window:** 2013 Q1 to 2019 Q4.
+- **Window (changed 24 Nov 2026):** main run pre-period 2015 Q1–2017 Q2, post-period 2017 Q4–2019 Q4 (2017 Q3 = transition). Reason: Columbia, Deckers, Logitech and JAKKS all have a 2014 jump or break (`notes/jump_check.md`). Sensitivity run with a 2013 Q1 start for Mattel and Hasbro only, with donors that are clean in 2013–2014.
+- **Donor pool (decided 24 Nov 2026):** Garmin, Colgate-Palmolive, Clorox, Hershey, WD-40, Fossil, Deckers, Columbia Sportswear (8). Logitech is out: its quarterly series is not clean from 2015 Q1. Electronic Arts is out as a donor (video games substitute for toys, so it may have gained from TRU's collapse); it is used in one sensitivity run only.
+- **Fit rule (fixed before any model):** a synthetic twin counts only if, over the pre-period, its average absolute gap to the treated company's revenue index is at most 4 index points and no single quarter is off by more than 8 index points. Otherwise we report "no credible twin" for that company.
 - **Outcome:** quarterly net revenue as an index = each quarter ÷ the same quarter of 2016 × 100. Use logs.
 - **Methods:**
   1. Difference-in-differences first, as a warm-up (Mixtape Ch 9, DiD basics; Ch 10 covers the more complex DiD designs). Plot the pre-trends (event-study plot).
@@ -36,7 +38,7 @@ You (Claude) write the code. I'm a beginner in Python but comfortable with stati
 
 ## Honest limits (must appear in the README)
 
-- Only 2–3 treated companies. With 20 comparison companies the smallest possible placebo p-value is about 1/21.
+- Only 2–3 treated companies, and about 9 units in a placebo test (1 treated + 8 donors), so the smallest possible placebo p-value is about 1/9 ≈ 0.1. **The project reports ranks, not significance.**
 - No clean comparison group inside toys (every big US toy maker sold through TRU).
 - Mattel's own problems at the same time (Barbie and other brands, its own shipment cuts to retailers).
 - Revenue is net of replacement: sales lost at TRU may have moved to Amazon, Walmart and Target.
@@ -49,6 +51,7 @@ You (Claude) write the code. I'm a beginner in Python but comfortable with stati
 - `data/raw/` holds downloaded JSON and is gitignored. `data/processed/` holds the tables we build.
 - The sister project `~/Documents/ai-fpa-forecast` already has companyfacts files and a quarterly revenue table for 20 companies. Read it, never modify it. Its revenue rules (tags, fiscal quarters, Q4 = full year − Q1–Q3) are in its `CLAUDE.md` and `src/build_quarterly.py`.
 - Data inventory (Session 1): `notes/data_inventory.md`.
+- **Revenue as first reported (decided 24 Nov 2026):** the main series uses each quarter's revenue as first published; a missing Q4 = full year − Q1–Q3, all first-reported, so all four come from the same year's filings. The latest (restated) figures are kept as a check. Reason: mixing restated full years with unrestated quarters puts a whole year's restatement into one derived quarter (Logitech 2015 Q1 was 17 % too low that way). Built by `src/quarterly.py` and `src/build_index.py`.
 
 ## Setup (same as ai-fpa-forecast)
 
