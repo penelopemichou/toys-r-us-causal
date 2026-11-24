@@ -19,12 +19,19 @@ You (Claude) write the code. I'm a beginner in Python but comfortable with stati
 
 - **Treated:** Mattel, Hasbro, JAKKS Pacific. TRU share of sales: Hasbro about 9 %; Mattel 11 % in 2016 and about 8–9 % in 2017; JAKKS 11.3 % in 2017.
 - **Comparison (donor pool):** US-listed 10-K filers, consumer products sold mostly via big-box retail and Amazon, full quarterly data 2013–2019, whose 10-K does not name Toys "R" Us or Babies "R" Us as a customer. Aim for 15–25 names. Start from the consumer companies in the 20-company ai-fpa-forecast set, then add 10–15 more.
+- **Screening rules (24 Nov 2026):**
+  1. Prefer discretionary consumer-products makers with a Q4 (holiday) peak, sold through big-box retail and Amazon. At most 2–3 staples.
+  2. Drop any company with a big acquisition, merger, spin-off or IPO in 2013–2019 that makes revenue jump, or without full quarterly data 2013 Q1–2019 Q4.
+  3. Download the SEC companyfacts file plus the 2016 and 2017 10-Ks. Search every spelling of Toys R Us and Babies R Us (with and without quotes, apostrophes and "&"). Drop any company that names them as a customer.
 - **First treated quarter:** 2017 Q4. 2017 Q3 is a transition quarter: left out of the main run, tested as a sensitivity check.
 - **Window:** 2013 Q1 to 2019 Q4.
 - **Outcome:** quarterly net revenue as an index = each quarter ÷ the same quarter of 2016 × 100. Use logs.
 - **Methods:**
-  1. Difference-in-differences first, as a warm-up (Mixtape Ch 9). Plot the pre-trends (event-study plot).
-  2. Synthetic control (the Session 0 brief says Ch 11; in the book it is Ch 10, "Synthetic Control", right after Ch 9 DiD), one per treated company, with placebo (in-space) tests.
+  1. Difference-in-differences first, as a warm-up (Mixtape Ch 9, DiD basics; Ch 10 covers the more complex DiD designs). Plot the pre-trends (event-study plot).
+  2. Synthetic control (Mixtape Ch 11), one per treated company, with placebo (in-space) tests.
+  - Chapter numbers follow the edition I read: Ch 9 = DiD basics, Ch 10 = complex DiD, Ch 11 = synthetic control.
+- **Hasbro 2017 Q1 has 14 weeks** (98 days, other quarters 13). Main run: use its revenue × 13/14. Keep the unadjusted number as a check. (Fixed 24 Nov 2026.)
+- **No segment revenue for now** (North America / US & Canada). Consolidated net revenue only.
 - **Sanity ceiling:** TRU was about 8–11 % of sales, so the direct hit is at most roughly −8 to −11 % even with zero replacement by other retailers.
 
 ## Honest limits (must appear in the README)
