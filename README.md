@@ -2,9 +2,18 @@
 
 **What happened to Mattel's and Hasbro's revenue after Toys "R" Us collapsed?**
 
+## What I found
+
+- **No convincing match for any of the three toy companies.** For each one I looked for the mix of 8 comparison companies that best followed its revenue before 2017. A match had to stay within 4 points of the company's revenue index (2016 = 100) on average, and within 8 in every quarter, a rule set before running. None did: the average misses were Mattel 4.6, Hasbro 7.4 and JAKKS 7.7 (6.7 without its unusual 2015 Q1).
+- **Nothing stands out against "fake" toy companies.** When each comparison company is treated as if it had lost Toys "R" Us, Hasbro ranks 4th of 9, Mattel 6th and JAKKS 7th for how far it drifted from its match after 2017.
+- **The toy companies did fall behind, but they were already moving differently before.** After mid-2017 the three together fell further behind the comparison companies than any of the 56 groups of three comparison companies did. Before then they were not moving in step with them, so this describes the toy companies; it does not measure what Toys "R" Us did.
+- **Taken at face value, the drops are bigger than Toys "R" Us's 8–11 % share of sales can explain.**
+
+## Background
+
 Toys "R" Us (TRU) filed for bankruptcy in September 2017 and closed its US stores by June 2018. It was one of the biggest customers of the large US toy makers: about 9 % of Hasbro's sales, about 11 % of Mattel's in 2016 and 11.3 % of JAKKS Pacific's in 2017. This project asks how their revenue moved afterwards, compared with similar consumer-products companies that did not sell through TRU.
 
-> **Status:** Session 6 — synthetic control done (`notes/synthetic_control.md`): no toy company gets a credible twin from the 8 donors, so neither method gives a Toys "R" Us effect yet. "What I found" will go at the top of this README at the end.
+> **Status:** Session 7 — difference-in-differences, synthetic control and two sensitivity runs done. Details: `notes/event_study.md`, `notes/synthetic_control.md`, `notes/sensitivity.md`.
 
 ## Plan
 
