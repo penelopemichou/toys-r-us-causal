@@ -112,3 +112,20 @@ Model: log index = company effect + quarter effect + a separate "treated × quar
 4. **Verdict I expect to write:** because the pre-period is not flat, the post-period coefficients **cannot be read as a Toys "R" Us effect**.
 
 **Result (Run 10):** see "How Claude's prediction did" in `notes/event_study.md`. The pre-period is not flat (pooled looks flat only by cancellation), the ranks and the verdict were right, and the post sizes were a bit smaller than I said (pooled −0.185, not −0.22).
+
+## Session 6 (24 Nov 2026): synthetic control (Mixtape Ch 11)
+
+### Run 11: one twin per toy company, fit rule, weights, leave-one-out, placebo ranks
+
+Set-up: twin = weighted average of the 8 donors' log index (weights 0–1, sum 1), fitted on 2015 Q1–2017 Q2 (the 2016 quarters are 100 for everyone, so in practice the 6 free quarters decide). Fit rule on the 6 free quarters: average absolute gap ≤ 4 index points and no quarter off by more than 8. Placebo ratio = post-period error ÷ pre-period error (root mean squared gap), ranked among the treated company and the 8 donor placebos (rank 1 = largest ratio).
+
+**Claude's prediction:**
+
+1. **Mattel: no credible twin.** Its 2017 Q1 (index about 85) is below every donor, so that quarter will be off by about 10–15 points (fails the "≤ 8 in any quarter" rule). Average gap about 4–6. Fossil gets the biggest weight (over 0.4), as the only donor that was falling.
+2. **Hasbro: no credible twin**, but closer than I said before. Deckers (noisy, with a high 2017 Q2) plus Columbia and Garmin can partly copy Hasbro's climb. Deckers' weight over 0.5. Average gap about 4–6, one quarter off by about 8–10. I give this a 60 % chance of failing.
+3. **JAKKS with 2015 Q1: no credible twin.** 2015 Q1 (119) is above every donor (the highest is about 110), so that quarter will be off by 9 or more. **Without 2015 Q1:** closer but still failing on the average (about 4–5), with Fossil over 0.5.
+4. **Leave-one-out:** dropping the largest donor makes every twin clearly worse (average gap up by 2 or more points), because only one or two donors move like each toy company.
+5. **Placebo ranks** (of 9): Mattel 2nd, Hasbro 3rd, JAKKS 6th with 2015 Q1 and 4th without it. Well-fitted donors such as Clorox and Colgate have tiny pre-period errors, so even small later moves give them big ratios, and they will rank high. Garmin and Columbia (strong growth after 2017) too.
+6. So no toy company gets rank 1 of 9, and with failed twins none of the ranks can be read as an effect anyway.
+
+**Result (Run 11):** see "How Claude's prediction did" in `notes/synthetic_control.md`. All three twins fail, as predicted, and Mattel only just misses. But Hasbro's twin is Garmin (0.99), not Deckers. The ranks were mostly wrong: Mattel 6th, Hasbro 4th, JAKKS 7th, against my 2nd, 3rd and 6th. Leave-one-out worsens the worst quarter but barely changes the average.

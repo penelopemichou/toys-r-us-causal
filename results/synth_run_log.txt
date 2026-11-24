@@ -1,0 +1,49 @@
+STEP 1 - FIT RULE (pre-period only; gaps = toy company minus twin, index points)
+                            run  fit_rule_quarters  avg_abs_gap_pts  max_abs_gap_pts worst_quarter  gap_2017Q1_pts  gap_2017Q2_pts  gap_2015Q1_pts          verdict
+                         Mattel                  6             4.56             8.47        2017Q1           -8.47            5.51            2.13 no credible twin
+                         Hasbro                  6             7.41             9.75        2017Q2           -7.34            9.75           -7.91 no credible twin
+                  JAKKS Pacific                  6             7.73            10.82        2015Q1            5.16           -7.52           10.82 no credible twin
+JAKKS Pacific (without 2015 Q1)                  5             6.65            10.12        2015Q2            3.63           -9.17           18.42 no credible twin
+
+STEP 2 - DONOR WEIGHTS (each column adds up to 1)
+                     Mattel  Hasbro  JAKKS Pacific  JAKKS Pacific (without 2015 Q1)
+Garmin                0.000   0.986          0.000                            0.000
+Colgate-Palmolive     0.000   0.000          0.000                            0.000
+Clorox                0.000   0.000          0.000                            0.000
+Hershey               0.000   0.000          0.381                            0.000
+WD-40                 0.232   0.000          0.000                            0.000
+Fossil Group          0.569   0.000          0.619                            0.535
+Deckers Outdoor       0.199   0.014          0.000                            0.000
+Columbia Sportswear   0.000   0.000          0.000                            0.465
+
+LEAVE-ONE-OUT (refit without the largest-weight donor; pre-period fit)
+                            run     left_out  left_out_weight  avg_abs_gap_before  avg_abs_gap_after  max_abs_gap_before  max_abs_gap_after    verdict_after                                                 new_weights
+                         Mattel Fossil Group            0.569                4.56               4.20                8.47              15.44 no credible twin    Colgate-Palmolive 0.76, WD-40 0.14, Deckers Outdoor 0.10
+                         Hasbro       Garmin            0.986                7.41               8.37                9.75              11.01 no credible twin Clorox 0.81, Columbia Sportswear 0.18, Deckers Outdoor 0.01
+                  JAKKS Pacific Fossil Group            0.619                7.73               8.78               10.82              15.49 no credible twin                        Colgate-Palmolive 0.61, Hershey 0.39
+JAKKS Pacific (without 2015 Q1) Fossil Group            0.535                6.65               7.59               10.12              16.81 no credible twin            Columbia Sportswear 0.69, Colgate-Palmolive 0.31
+
+STEP 3 - PLACEBO IN SPACE: ratio = post-period error / pre-period error (rank 1 = largest of 9)
+                            run  pre_rmspe  post_rmspe  ratio  rank_of_9 share_as_extreme             twin
+                         Mattel     0.0534      0.1133   2.12          6              6/9 no credible twin
+                         Hasbro     0.0786      0.2682   3.41          4              4/9 no credible twin
+                  JAKKS Pacific     0.0808      0.1440   1.78          7              7/9 no credible twin
+JAKKS Pacific (without 2015 Q1)     0.0753      0.2127   2.83          7              7/9 no credible twin
+Donor placebos (main pre-period):
+              donor  ratio  pre_rmspe  post_rmspe  twin_passes_fit_rule
+             Clorox   8.67     0.0105      0.0911                  True
+             Garmin   4.17     0.0241      0.1005                  True
+       Fossil Group   3.58     0.0759      0.2717                 False
+  Colgate-Palmolive   2.45     0.0294      0.0719                  True
+Columbia Sportswear   2.17     0.0351      0.0761                  True
+              WD-40   1.90     0.0254      0.0481                  True
+            Hershey   1.30     0.0230      0.0300                  True
+    Deckers Outdoor   1.12     0.1144      0.1278                 False
+
+STEP 4 - POST-PERIOD GAP (2017 Q4-2019 Q4), toy company minus twin
+  Mattel                             mean   -9.5 index points,  -10.2 %  [FOR INFORMATION, NOT AN EFFECT (no credible twin)]
+  Hasbro                             mean  -24.9 index points,  -21.0 %  [FOR INFORMATION, NOT AN EFFECT (no credible twin)]
+  JAKKS Pacific                      mean   -7.0 index points,   -8.3 %  [FOR INFORMATION, NOT AN EFFECT (no credible twin)]
+  JAKKS Pacific (without 2015 Q1)    mean  -15.3 index points,  -16.2 %  [FOR INFORMATION, NOT AN EFFECT (no credible twin)]
+Saved results/synth_for_information.png
+Saved results/synth_placebo_ratios.png

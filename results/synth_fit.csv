@@ -1,0 +1,5 @@
+run,fit_rule_quarters,avg_abs_gap_pts,max_abs_gap_pts,worst_quarter,gap_2017Q1_pts,gap_2017Q2_pts,gap_2015Q1_pts,verdict
+Mattel,6,4.56,8.47,2017Q1,-8.47,5.51,2.13,no credible twin
+Hasbro,6,7.41,9.75,2017Q2,-7.34,9.75,-7.91,no credible twin
+JAKKS Pacific,6,7.73,10.82,2015Q1,5.16,-7.52,10.82,no credible twin
+JAKKS Pacific (without 2015 Q1),5,6.65,10.12,2015Q2,3.63,-9.17,18.42,no credible twin

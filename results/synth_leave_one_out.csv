@@ -1,0 +1,5 @@
+run,left_out,left_out_weight,avg_abs_gap_before,avg_abs_gap_after,max_abs_gap_before,max_abs_gap_after,verdict_after,new_weights,post_mean_log_gap_after
+Mattel,Fossil Group,0.569,4.56,4.2,8.47,15.44,no credible twin,"Colgate-Palmolive 0.76, WD-40 0.14, Deckers Outdoor 0.10",-0.233
+Hasbro,Garmin,0.986,7.41,8.37,9.75,11.01,no credible twin,"Clorox 0.81, Columbia Sportswear 0.18, Deckers Outdoor 0.01",-0.139
+JAKKS Pacific,Fossil Group,0.619,7.73,8.78,10.82,15.49,no credible twin,"Colgate-Palmolive 0.61, Hershey 0.39",-0.245
+JAKKS Pacific (without 2015 Q1),Fossil Group,0.535,6.65,7.59,10.12,16.81,no credible twin,"Columbia Sportswear 0.69, Colgate-Palmolive 0.31",-0.35
