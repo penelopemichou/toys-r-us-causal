@@ -1,6 +1,8 @@
 # Revenue index, chart and pre-period trends (24 Nov 2026)
 
-Made with `src/build_index.py`. No models. Files:
+Made with `src/build_index.py`. No models.
+
+> **Update (Session 5, 24 Nov 2026):** every 14-week quarter is now scaled by 13/14, including Garmin's 2016 Q4 base quarter (`notes/fifty_three_weeks.md`). Garmin's numbers changed: trend +3.7 %/yr (was +4.3), wobble 1.4 (was 2.6), mean after 119.1, 2019 Q4 137.9. EA: +12.2 %/yr. JAKKS pre-trend is −7.3 %/yr with 2015 Q1 and −4.5 %/yr without it. The current numbers are in `results/pretrend_table.csv`; the table below is the Session 4 version. Files:
 - `data/processed/revenue_quarterly.csv`: revenue (first reported and restated) and the index for 12 companies, 2013 Q1–2019 Q4, 336 rows, no missing quarters.
 - `results/index_treated_vs_donors.png`: the chart.
 - `results/pretrend_table.csv`: the table below.

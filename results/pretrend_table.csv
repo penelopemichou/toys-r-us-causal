@@ -1,13 +1,13 @@
-company,group,pre_trend_pct_per_year,pre_wobble_sd_index_pts,index_2015Q1,index_2017Q2,index_2017Q3,mean_index_post,index_2019Q4
-Mattel,treated,-4.8,5.9,106.1,101.8,86.9,83.6,80.3
-Hasbro,treated,9.1,4.5,85.8,110.6,106.7,94.1,87.6
-JAKKS Pacific,treated,-7.3,7.6,119.2,84.8,86.7,81.8,91.3
-Garmin,donor,4.3,2.6,93.8,100.7,102.9,116.2,128.1
-Colgate-Palmolive,donor,-3.5,1.5,108.2,99.5,102.8,103.0,107.9
-Clorox,donor,2.9,1.5,98.2,102.9,104.0,104.9,103.1
-Hershey,donor,0.7,2.9,106.0,101.5,101.5,105.3,105.0
-WD-40,donor,1.2,2.9,102.9,101.8,99.4,110.2,110.4
-Fossil Group,donor,-8.9,3.2,109.9,87.1,93.3,80.2,74.2
-Deckers Outdoor,donor,2.1,9.9,90.0,120.3,99.3,119.1,123.5
-Columbia Sportswear,donor,3.4,2.8,91.2,102.6,100.2,121.9,133.1
-Electronic Arts,sensitivity,10.8,4.2,90.6,114.0,106.8,116.1,138.6
+company,group,pre_trend_pct_per_year,pre_trend_without_flagged,pre_wobble_sd_index_pts,index_2015Q1,index_2017Q2,index_2017Q3,mean_index_post,index_2019Q4
+Mattel,treated,-4.8,-4.8,5.9,106.1,101.8,86.9,83.6,80.3
+Hasbro,treated,9.1,9.1,4.5,85.8,110.6,106.7,94.1,87.6
+JAKKS Pacific,treated,-7.3,-4.5,7.6,119.2,84.8,86.7,81.8,91.3
+Garmin,donor,3.7,3.7,1.4,93.8,100.7,102.9,119.1,137.9
+Colgate-Palmolive,donor,-3.5,-3.5,1.5,108.2,99.5,102.8,103.0,107.9
+Clorox,donor,2.9,2.9,1.5,98.2,102.9,104.0,104.9,103.1
+Hershey,donor,0.7,0.7,2.9,106.0,101.5,101.5,105.3,105.0
+WD-40,donor,1.2,1.2,2.9,102.9,101.8,99.4,110.2,110.4
+Fossil Group,donor,-8.9,-8.9,3.2,109.9,87.1,93.3,80.2,74.2
+Deckers Outdoor,donor,2.1,2.1,9.9,90.0,120.3,99.3,119.1,123.5
+Columbia Sportswear,donor,3.4,3.4,2.8,91.2,102.6,100.2,121.9,133.1
+Electronic Arts,sensitivity,12.2,12.2,3.9,90.6,114.0,106.8,116.1,138.6

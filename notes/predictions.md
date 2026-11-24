@@ -87,3 +87,28 @@ Each prediction is written and saved **before** the run it is about.
 6. Only Hasbro 2017 Q1 has 14 weeks among the 11 companies' quarters in the window; no other quarter is longer than 98 days.
 
 **Result (Run 8):** see "How Claude's prediction did" in `notes/index_findings.md`. In short: the treated companies' levels and trends were right, and Hasbro's pre-trend is above every donor, as predicted. Garmin and Columbia grow more slowly than I said. "Only Hasbro has a 14-week quarter" was wrong: Garmin's 2016 Q4 base quarter does too.
+
+## Session 5 (24 Nov 2026): 53-week quarters, fit rule, DiD event study
+
+### Run 9: which quarters 2013–2019 have 14 weeks (53-week years)?
+
+**Claude's prediction:** a 14-week quarter shows as about 97 days between its start and end date (a 13-week quarter is 90; calendar quarters are 89–92). In 2013–2019 there are exactly **four**: Hasbro 2017 Q1, Garmin 2016 Q4, Fossil 2014 Q1 (all three already seen), plus **one at Electronic Arts** (its year ends on the Saturday nearest 31 March). Mattel, JAKKS, Colgate, Clorox, Hershey, WD-40, Deckers and Columbia use calendar month ends, so none. Hershey's 93–94-day quarters are a few extra days, not an extra week. The donors' fiscal 2016–17 10-Ks will say "53 weeks" for Garmin's 2016 only.
+
+**Result (Run 9):** see `notes/fifty_three_weeks.md`. Four 14-week quarters, as predicted (Hasbro 2017 Q1, Garmin 2016 Q4, Fossil 2014 Q1, EA 2015 Q2), but EA's is visible only in its 10-K text, not in the dates. Fossil's and EA's 10-Ks also mention 53 weeks, not only Garmin's.
+
+### Run 10: DiD event study (log index, 2015 Q1–2019 Q4, reference 2017 Q2), with donor placebos
+
+Model: log index = company effect + quarter effect + a separate "treated × quarter" coefficient for every quarter except 2017 Q2. With one treated group and no gaps, each coefficient equals (treated change since 2017 Q2) − (donor change since 2017 Q2).
+
+**Claude's prediction:**
+
+1. **The pre-period is not flat.** Pooled (3 treated together) it looks fairly flat, because the three cancel out: about +0.05 in 2015, about +0.03 in the four 2016 quarters (all equal, since every index is 100 in 2016), about −0.05 in 2017 Q1. But one by one:
+   - Hasbro: 2015 coefficients about −0.20 (its fast pre-growth);
+   - JAKKS: 2015 Q1 about +0.35 (the *Frozen* spike);
+   - Mattel: 2017 Q1 about −0.18 (its own fall before TRU's bankruptcy).
+   All three lie outside most donor placebos in at least one pre-quarter.
+2. **Post-period:** pooled average about −0.22 (about −20 %), more than the sanity ceiling of −8 to −11 %. One by one, average after: Mattel about −0.30, Hasbro about −0.27, JAKKS about −0.15.
+3. **Placebos:** the donors' own post averages run from about −0.20 (Fossil) to about +0.12 (Garmin, Columbia). Mattel and Hasbro rank 1st and 2nd most negative of the 11; JAKKS is near Fossil (3rd–4th).
+4. **Verdict I expect to write:** because the pre-period is not flat, the post-period coefficients **cannot be read as a Toys "R" Us effect**.
+
+**Result (Run 10):** see "How Claude's prediction did" in `notes/event_study.md`. The pre-period is not flat (pooled looks flat only by cancellation), the ranks and the verdict were right, and the post sizes were a bit smaller than I said (pooled −0.185, not −0.22).

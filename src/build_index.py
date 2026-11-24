@@ -3,7 +3,7 @@
 Steps:
   1. Quarterly revenue, as first reported, 2013 Q1 - 2019 Q4, for the 3 treated
      companies, the 8 donors and Electronic Arts (sensitivity only).
-     Hasbro 2017 Q1 has 14 weeks: the main series uses revenue x 13/14.
+     Every 14-week quarter (53-week years) is scaled by 13/14 in the main series.
   2. Index = revenue / revenue in the same quarter of 2016 x 100. Dividing by the
      same quarter removes the seasonal pattern (Q4 is always the big quarter).
      log_index = natural log of the index (the outcome the models will use).
@@ -40,6 +40,9 @@ WINDOW = pd.period_range("2013Q1", "2019Q4", freq="Q")
 PRE = pd.period_range("2015Q1", "2017Q2", freq="Q")       # main pre-period (10 quarters)
 TRANSITION = pd.Period("2017Q3")
 POST = pd.period_range("2017Q4", "2019Q4", freq="Q")      # post-period (9 quarters)
+FOURTEEN_WEEK_QUARTERS = {("Hasbro", "2017Q1"), ("Garmin", "2016Q4"),
+                          ("Fossil Group", "2014Q1"), ("Electronic Arts", "2015Q2")}
+FLAGGED = {("JAKKS Pacific", "2015Q1"): "inside the 2014-15 Frozen spike"}
 
 # --- 1. Quarterly revenue ----------------------------------------------------
 rows = []
@@ -58,14 +61,17 @@ for name in COMPANIES:
 df = pd.DataFrame(rows)
 df["quarter_p"] = pd.PeriodIndex(df["quarter"], freq="Q")
 
-# Quarters longer than 13 weeks (> 92 days), to see which need an adjustment.
-long_q = df[df["days"] > 92]
-print("Quarters longer than 92 days:", long_q[["company", "quarter", "days"]].values.tolist())
-
-# The main revenue series: first reported, Hasbro 2017 Q1 x 13/14.
+# The main revenue series: first reported, every 14-week quarter x 13/14.
+# The list comes from src/scan_53_weeks.py (notes/fifty_three_weeks.md). EA's
+# quarter cannot be seen in the dates (EA labels quarters by month end), so a
+# written list is used, and the dates are checked against it below.
 df["revenue_main"] = df["revenue_first_reported"].astype(float)
-hasbro_q1 = (df["company"] == "Hasbro") & (df["quarter"] == "2017Q1")
-df.loc[hasbro_q1, "revenue_main"] *= 13 / 14
+df["fourteen_weeks"] = [(c, q) in FOURTEEN_WEEK_QUARTERS for c, q in zip(df["company"], df["quarter"])]
+df.loc[df["fourteen_weeks"], "revenue_main"] *= 13 / 14
+unlisted = df[(df["days"] >= 95) & ~df["fourteen_weeks"]]
+if len(unlisted):
+    raise SystemExit(f"14-week quarters missing from the list: {unlisted[['company', 'quarter']].values.tolist()}")
+print("Scaled by 13/14:", df.loc[df["fourteen_weeks"], ["company", "quarter"]].values.tolist())
 
 # --- 2. The index -----------------------------------------------------------
 # For each company and quarter of the year (Q1..Q4), divide by that quarter in 2016.
@@ -73,7 +79,8 @@ df["qtr_of_year"] = df["quarter_p"].dt.quarter
 base = df[df["quarter_p"].dt.year == 2016].set_index(["company", "qtr_of_year"])["revenue_main"]
 df["index"] = 100 * df["revenue_main"] / df.set_index(["company", "qtr_of_year"]).index.map(base)
 df["log_index"] = np.log(df["index"])
-# The same index without the Hasbro adjustment and with restated revenue, as checks.
+df["flag"] = [FLAGGED.get((c, q), "") for c, q in zip(df["company"], df["quarter"])]
+# The same index without the 13/14 adjustment and with restated revenue, as checks.
 base_first = df[df["quarter_p"].dt.year == 2016].set_index(["company", "qtr_of_year"])["revenue_first_reported"]
 df["index_unadjusted"] = 100 * df["revenue_first_reported"] / df.set_index(["company", "qtr_of_year"]).index.map(base_first)
 base_latest = df[df["quarter_p"].dt.year == 2016].set_index(["company", "qtr_of_year"])["revenue_latest"]
@@ -90,17 +97,27 @@ print("Quarters 2015-2019 where restated differs from first reported by > 2 %:",
       big.groupby("company")["quarter"].apply(list).to_dict())
 
 # --- 3. Pre-period trend table ----------------------------------------------
+def trend_line(pre):
+    """Slope (% per year) and wobble of log_index on time; time in years from 2015 Q1."""
+    t = np.array([(p - PRE[0]).n for p in pre["quarter_p"]]) / 4
+    slope, intercept = np.polyfit(t, pre["log_index"], 1)
+    resid = pre["log_index"] - (intercept + slope * t)
+    return round(100 * (np.exp(slope) - 1), 1), round(100 * resid.std(ddof=2), 1)
+
+
 trend_rows = []
 for name, g in df.groupby("company", sort=False):
     pre = g[g["quarter_p"].isin(PRE)].sort_values("quarter_p")
-    t = np.arange(len(pre)) / 4                 # time in years
-    slope, intercept = np.polyfit(t, pre["log_index"], 1)
-    resid = pre["log_index"] - (intercept + slope * t)
+    trend_pct, wobble = trend_line(pre)
+    # Without flagged quarters (JAKKS 2015 Q1), as a second trend.
+    clean = pre[pre["flag"] == ""]
+    trend_clean = trend_line(clean)[0] if len(clean) < len(pre) else trend_pct
     post = g[g["quarter_p"].isin(POST)]
     trend_rows.append({
         "company": name, "group": pre["group"].iloc[0],
-        "pre_trend_pct_per_year": round(100 * (np.exp(slope) - 1), 1),
-        "pre_wobble_sd_index_pts": round(100 * resid.std(ddof=2), 1),   # spread around the line, about index points
+        "pre_trend_pct_per_year": trend_pct,
+        "pre_trend_without_flagged": trend_clean,
+        "pre_wobble_sd_index_pts": wobble,   # spread around the line, about index points
         "index_2015Q1": round(pre["index"].iloc[0], 1),
         "index_2017Q2": round(pre["index"].iloc[-1], 1),
         "index_2017Q3": round(g.loc[g["quarter_p"] == TRANSITION, "index"].iloc[0], 1),

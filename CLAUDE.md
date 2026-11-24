@@ -26,13 +26,14 @@ You (Claude) write the code. I'm a beginner in Python but comfortable with stati
 - **First treated quarter:** 2017 Q4. 2017 Q3 is a transition quarter: left out of the main run, tested as a sensitivity check.
 - **Window (changed 24 Nov 2026):** main run pre-period 2015 Q1–2017 Q2, post-period 2017 Q4–2019 Q4 (2017 Q3 = transition). Reason: Columbia, Deckers, Logitech and JAKKS all have a 2014 jump or break (`notes/jump_check.md`). Sensitivity run with a 2013 Q1 start for Mattel and Hasbro only, with donors that are clean in 2013–2014.
 - **Donor pool (decided 24 Nov 2026):** Garmin, Colgate-Palmolive, Clorox, Hershey, WD-40, Fossil, Deckers, Columbia Sportswear (8). Logitech is out: its quarterly series is not clean from 2015 Q1. Electronic Arts is out as a donor (video games substitute for toys, so it may have gained from TRU's collapse); it is used in one sensitivity run only.
-- **Fit rule (fixed before any model):** a synthetic twin counts only if, over the pre-period, its average absolute gap to the treated company's revenue index is at most 4 index points and no single quarter is off by more than 8 index points. Otherwise we report "no credible twin" for that company.
+- **Fit rule (fixed before any model; updated 24 Nov 2026):** a synthetic twin counts only if, over the **6 free pre-quarters (2015 Q1–Q4 and 2017 Q1–Q2)**, its average absolute gap to the treated company's revenue index is at most 4 index points and no single quarter is off by more than 8 index points. Otherwise we report "no credible twin" for that company. The 2016 quarters are left out because the index is 100 for every company there by construction. The 2017 Q1–Q2 gap is also reported on its own (the quarters just before treatment).
 - **Outcome:** quarterly net revenue as an index = each quarter ÷ the same quarter of 2016 × 100. Use logs.
 - **Methods:**
   1. Difference-in-differences first, as a warm-up (Mixtape Ch 9, DiD basics; Ch 10 covers the more complex DiD designs). Plot the pre-trends (event-study plot).
   2. Synthetic control (Mixtape Ch 11), one per treated company, with placebo (in-space) tests.
   - Chapter numbers follow the edition I read: Ch 9 = DiD basics, Ch 10 = complex DiD, Ch 11 = synthetic control.
-- **Hasbro 2017 Q1 has 14 weeks** (98 days, other quarters 13). Main run: use its revenue × 13/14. Keep the unadjusted number as a check. (Fixed 24 Nov 2026.)
+- **14-week quarters (53-week years), all companies (decided 24 Nov 2026):** main run scales every 14-week quarter by 13/14; the unadjusted numbers are kept as a check. Found by `src/scan_53_weeks.py` (quarter dates in the SEC data + the 10-Ks on disk; `notes/fifty_three_weeks.md`): Hasbro 2017 Q1, Garmin 2016 Q4 (a 2016 base quarter), Fossil 2014 Q1, Electronic Arts 2015 Q2 (EA labels its quarters with calendar month ends, so only its 10-K shows this one). The list is `FOURTEEN_WEEK_QUARTERS` in `src/build_index.py`.
+- **JAKKS 2015 Q1 is flagged:** it is inside JAKKS's 2014–15 *Frozen* spike. Its pre-trend is always shown with and without that quarter.
 - **No segment revenue for now** (North America / US & Canada). Consolidated net revenue only.
 - **Sanity ceiling:** TRU was about 8–11 % of sales, so the direct hit is at most roughly −8 to −11 % even with zero replacement by other retailers.
 
