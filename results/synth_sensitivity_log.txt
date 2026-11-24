@@ -1,0 +1,46 @@
+Check passed: synth_core.py reproduces the main results (results/synth_fit.csv).
+
+1. EA AS A 9TH DONOR (fit rule on the same free quarters as the main run)
+                            run  ea_weight  avg_abs_gap_8_donors  avg_abs_gap_with_ea  max_abs_gap_8_donors  max_abs_gap_with_ea worst_quarter          verdict
+                         Mattel      0.000                  4.56                 4.56                  8.47                 8.47        2017Q1 no credible twin
+                         Hasbro      0.362                  7.41                 6.36                  9.75                12.18        2017Q1 no credible twin
+                  JAKKS Pacific      0.000                  7.73                 7.73                 10.82                10.82        2015Q1 no credible twin
+JAKKS Pacific (without 2015 Q1)      0.000                  6.65                 6.65                 10.12                10.12        2015Q2 no credible twin
+
+2. 2013 START - which donors are clean in 2013-2014?
+   Garmin               clean  jumps over 20 %: none
+   Colgate-Palmolive    clean  jumps over 20 %: none
+   Clorox               clean  jumps over 20 %: none
+   Hershey              clean  jumps over 20 %: none
+   WD-40                clean  jumps over 20 %: none
+   Fossil Group         clean  jumps over 20 %: none
+   Deckers Outdoor      OUT    jumps over 20 %: 2014Q2 +24%, 2014Q3 +24%; UGG distributor bought July 2014; year-end change 2014
+   Columbia Sportswear  OUT    jumps over 20 %: 2014Q1 +22%, 2014Q3 +29%, 2014Q4 +27%; prAna bought and China joint venture started, 2014
+   -> 6 donors left; smallest possible placebo rank 1 of 7 (about 0.14) instead of 1 of 9 (about 0.11)
+
+   Fit rule on 14 free quarters (2013-2015, 2017 Q1-Q2):
+                run  donors  avg_abs_gap_14q  max_abs_gap_14q worst_quarter  gap_2017Q1  gap_2017Q2          verdict  placebo_ratio rank
+Mattel (2013 start)       6             4.87            13.34        2017Q1      -13.34        4.45 no credible twin           3.00  3/7
+Hasbro (2013 start)       6             8.53            20.83        2014Q4       -7.40        9.99 no credible twin           2.44  3/7
+
+WEIGHTS (0 = not used or not available)
+                     Mattel + EA  Hasbro + EA  JAKKS Pacific + EA  JAKKS Pacific (without 2015 Q1) + EA  Mattel (2013 start)  Hasbro (2013 start)
+Garmin                     0.000        0.595               0.000                                 0.000                0.000                  1.0
+Colgate-Palmolive          0.000        0.000               0.000                                 0.000                0.835                  0.0
+Clorox                     0.000        0.000               0.000                                 0.000                0.000                  0.0
+Hershey                    0.000        0.000               0.381                                 0.000                0.000                  0.0
+WD-40                      0.232        0.000               0.000                                 0.000                0.000                  0.0
+Fossil Group               0.569        0.000               0.619                                 0.535                0.165                  0.0
+Deckers Outdoor            0.199        0.043               0.000                                 0.000                0.000                  0.0
+Columbia Sportswear        0.000        0.000               0.000                                 0.465                0.000                  0.0
+Electronic Arts            0.000        0.362               0.000                                 0.000                0.000                  0.0
+
+Post-period gaps, FOR INFORMATION ONLY (none of these twins is credible):
+   Mattel                             -10.2 %  [no credible twin]
+   Hasbro                             -19.9 %  [no credible twin]
+   JAKKS Pacific                      -8.3 %  [no credible twin]
+   JAKKS Pacific (without 2015 Q1)    -16.2 %  [no credible twin]
+   Mattel (2013 start)                -15.4 %  [no credible twin]
+   Hasbro (2013 start)                -21.0 %  [no credible twin]
+
+Saved results/synth_sensitivity_*.csv and results/synth_sensitivity_2013.png

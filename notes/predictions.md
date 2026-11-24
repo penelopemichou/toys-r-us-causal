@@ -129,3 +129,22 @@ Set-up: twin = weighted average of the 8 donors' log index (weights 0–1, sum 1
 6. So no toy company gets rank 1 of 9, and with failed twins none of the ranks can be read as an effect anyway.
 
 **Result (Run 11):** see "How Claude's prediction did" in `notes/synthetic_control.md`. All three twins fail, as predicted, and Mattel only just misses. But Hasbro's twin is Garmin (0.99), not Deckers. The ranks were mostly wrong: Mattel 6th, Hasbro 4th, JAKKS 7th, against my 2nd, 3rd and 6th. Leave-one-out worsens the worst quarter but barely changes the average.
+
+## Session 7 (24 Nov 2026): sensitivity runs
+
+### Run 12: EA added as a 9th donor (same fit rule, same window)
+
+**Claude's prediction:**
+
+1. **Hasbro** gets a large EA weight (over 0.6). EA grew about as fast as Hasbro before 2017 (+12 % vs +9 % a year), so the twin gets much closer: average gap about 4–5. I give it a 50 % chance of passing. If it passes, it is "passes only with a toy substitute (EA), so not credible".
+2. **Mattel** and **JAKKS** (both shrinking) give EA little or no weight (under 0.1), and their fits barely change: all still fail.
+
+### Run 13: 2013 start (pre-period 2013 Q1–2017 Q2) for Mattel and Hasbro, clean donors only
+
+**Claude's prediction:**
+
+1. Clean in 2013–2014 = no jump over 20 % against the same quarter a year earlier and no known acquisition or break: **6 donors** (Garmin, Colgate, Clorox, Hershey, WD-40, Fossil). Deckers and Columbia drop out (both changed in 2014). So the smallest possible placebo rank becomes **1 of 7** (about 0.14) instead of 1 of 9.
+2. **Mattel**: index about 115–120 in 2013, falling to 100 in 2016. Colgate (strong dollar) and Fossil fall too, so the twin is mostly Colgate + Fossil. It still **fails**: average gap about 5–7 over the 14 free quarters, because Mattel's 2017 Q1 drop is still there.
+3. **Hasbro**: index about 80–85 in 2013, rising. The twin is again mostly Garmin (over 0.7), and it **fails** (average 6–9).
+
+**Result (Runs 12–13):** see "How Claude's prediction did" in `notes/sensitivity.md`. With EA, Hasbro still fails: EA weight 0.36 (I said over 0.6), and the worst quarter got worse. Mattel and JAKKS ignore EA. With the 2013 start, the 6 clean donors and the 1-of-7 limit were right; Mattel's twin is mostly Colgate and fails on 2017 Q1; Hasbro's is Garmin and fails.
