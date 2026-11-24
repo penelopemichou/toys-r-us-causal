@@ -1,0 +1,7 @@
+# Same versions as ~/Documents/ai-fpa-forecast.
+# NumPy is pinned below 2.5: pandas 2.3.3 raises DeprecationWarnings with NumPy 2.5.
+numpy==2.4.6
+pandas==2.3.3
+requests==2.32.3
+matplotlib==3.9.4
+jupyter==1.1.1
