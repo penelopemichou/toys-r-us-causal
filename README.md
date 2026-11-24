@@ -4,7 +4,7 @@
 
 Toys "R" Us (TRU) filed for bankruptcy in September 2017 and closed its US stores by June 2018. It was one of the biggest customers of the large US toy makers: about 9 % of Hasbro's sales, about 11 % of Mattel's in 2016 and 11.3 % of JAKKS Pacific's in 2017. This project asks how their revenue moved afterwards, compared with similar consumer-products companies that did not sell through TRU.
 
-> **Status:** Session 2 — setup, data inventory, JAKKS Pacific data downloaded and checked. No results yet. "What I found" will go at the top of this README at the end.
+> **Status:** Session 3 — data for the treated companies checked; comparison companies screened (7–10 pass, see `notes/screening_table.md`). No results yet. "What I found" will go at the top of this README at the end.
 
 ## Plan
 
@@ -19,6 +19,8 @@ Toys "R" Us (TRU) filed for bankruptcy in September 2017 and closed its US store
 ## Honest limits
 
 - Only 2–3 treated companies. With 20 comparison companies the smallest possible placebo p-value is about 1/21.
+- The comparison pool is small: after screening, 7–10 companies pass, so the smallest possible placebo p-value is about 1/8 to 1/11, not 1/21.
+- "Does not name Toys "R" Us in its 10-K" is not the same as "sold nothing through Toys "R" Us": 10-Ks usually name only customers above 10 % of sales.
 - No clean comparison group inside toys: every large US toy maker sold through TRU.
 - Mattel had its own problems at the same time (weak Barbie and other brands, its own cuts to retailer shipments).
 - Revenue is net of replacement: sales lost at TRU may have moved to Amazon, Walmart and Target.

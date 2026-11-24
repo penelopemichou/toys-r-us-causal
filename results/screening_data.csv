@@ -1,0 +1,14 @@
+company,sec_name,fy_end_months,quarters_found,missing,q4_derived,sums_off_by_over_1pct,max_abs_yoy_growth,quarters_over_20pct_yoy,tags_used,tenk_files,tru_mentions
+Garmin,GARMIN LTD,[12],28,,0,2017Q4,0.183,,RevenueFromContractWithCustomerExcludingAssessedTax SalesRevenueNet,2,0
+Colgate-Palmolive,COLGATE-PALMOLIVE COMPANY,[12],28,,0,,0.087,,RevenueFromContractWithCustomerExcludingAssessedTax SalesRevenueNet,2,0
+Clorox,THE CLOROX COMPANY,[6],28,,0,2013Q2,0.045,,RevenueFromContractWithCustomerExcludingAssessedTax Revenues SalesRevenueGoodsNet SalesRevenueNet,8,0
+Hershey,HERSHEY CO,[12],28,,0,,0.058,,RevenueFromContractWithCustomerExcludingAssessedTax Revenues SalesRevenueNet,2,0
+Helen of Troy,HELEN OF TROY LIMITED,[2],28,,0,2016Q1,0.209,2015Q1:+21%,RevenueFromContractWithCustomerExcludingAssessedTax SalesRevenueNet,2,0
+WD-40,WD-40 COMPANY,[8],28,,7,,0.094,,Revenues SalesRevenueNet,2,0
+Logitech,LOGITECH INTERNATIONAL S.A.,[3],28,,7,,0.218,2014Q1:-21% 2017Q4:+22%,RevenueFromContractWithCustomerExcludingAssessedTax SalesRevenueNet,2,0
+Electronic Arts,ELECTRONIC ARTS INC.,[3],28,,0,,0.424,2014Q2:+28% 2014Q3:+42% 2014Q4:+39% 2018Q2:-22% 2018Q3:+34% 2019Q1:-22% 2019Q4:+24%,Revenues SalesRevenueNet,2,0
+iRobot,iROBOT CORPORATION,"[1, 12]",28,,0,,0.538,2014Q4:+26% 2015Q4:+30% 2017Q1:+29% 2017Q2:+23% 2017Q3:+22% 2017Q4:+54% 2018Q1:+29% 2018Q2:+24% 2018Q3:+29%,RevenueFromContractWithCustomerExcludingAssessedTax Revenues SalesRevenueNet,2,0
+Deckers Outdoor,DECKERS OUTDOOR CORP,"[3, 12]",28,,0,,0.243,2014Q2:+24% 2014Q3:+24% 2017Q2:+20%,RevenueFromContractWithCustomerExcludingAssessedTax SalesRevenueGoodsNet,2,0
+Columbia Sportswear,COLUMBIA SPORTSWEAR COMPANY,[12],28,,6,,0.291,2014Q1:+22% 2014Q3:+29% 2014Q4:+27% 2018Q2:+21%,RevenueFromContractWithCustomerExcludingAssessedTax Revenues SalesRevenueGoodsNet,2,0
+Fossil Group,"FOSSIL GROUP, INC.","[1, 12]",28,,6,,0.183,,RevenueFromContractWithCustomerExcludingAssessedTax SalesRevenueNet,2,0
+Escalade,"ESCALADE, INCORPORATED",[12],25,2017Q2 2018Q2 2019Q2,0,2013Q4 2014Q4 2015Q4 2016Q4,0.512,2015Q1:+21% 2017Q4:+23% 2018Q1:-24% 2018Q3:+51% 2019Q1:-34% 2019Q3:+29%,RevenueFromContractWithCustomerExcludingAssessedTax Revenues SalesRevenueGoodsNet,3,0
