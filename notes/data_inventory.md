@@ -8,7 +8,7 @@ What the sister project `~/Documents/ai-fpa-forecast` already has, checked with 
 |---|---|---|
 | Mattel (CIK 0000063276) | yes | yes |
 | Hasbro (CIK 0000046080) | yes | yes |
-| JAKKS Pacific | **no** | **no** |
+| JAKKS Pacific (CIK 0001009829) | **no** in the sister project; downloaded here on 24 Nov 2026 (`data/raw/CIK0001009829.json`) | not built yet; all 28 quarters available (see below) |
 
 ## 2. Quarterly revenue 2013 Q1 – 2019 Q4 (28 quarters)
 
@@ -16,6 +16,14 @@ What the sister project `~/Documents/ai-fpa-forecast` already has, checked with 
 - **Hasbro: 28 of 28.** Year of 52/53 weeks ending on the last Sunday of December, so Q1 can end on 1 or 2 April. **2017 Q1 has 14 weeks (98 days)** instead of 13: its index vs 2016 Q1 is about 1/13 ≈ 8 % too high from the extra week alone. No restatements in the window.
 - All 20 companies have 28 of 28, except Best Buy (27; the sister project starts it in May 2013 after a year-end change). It is a retailer, so it is not used anyway.
 - Calendar quarter rule used here: a fiscal quarter goes to the calendar quarter whose end is nearest its own end date. (My first run used "the quarter it ends in", which wrongly showed Hasbro and Cummins with gaps because their Q1 ends in early April.)
+
+### JAKKS Pacific (downloaded 24 Nov 2026)
+
+- December year end, calendar quarters. **28 of 28 quarters** 2013–2019, all tagged directly (Q4 included), and the four quarters add up exactly to the full year every year. No restatements.
+- Tags: `SalesRevenueNet` 2013 Q1–2018 Q4, then `RevenueFromContractWithCustomerExcludingAssessedTax` (2019, and overlapping from 2017 Q2 with identical values).
+- **Do not use the `Revenues` tag for 2013–2015**: it is about half of net sales (e.g. $302 m vs $633 m in 2013), so it is a part of revenue, not the total.
+- Full-year net sales ($ m): 2013 632.9, 2014 810.1, 2015 745.7, 2016 706.6, 2017 613.1, 2018 567.8, 2019 598.6.
+- Listed with `src/list_revenue_quarters.py "JAKKS Pacific"`.
 
 ## 3. Segment revenue (North America / US & Canada)?
 
@@ -44,7 +52,7 @@ So **5 usable comparison companies**, against a target of 15–25. All 5 still n
 
 ## 5. What would need downloading (waiting for your yes)
 
-1. **JAKKS Pacific companyfacts file**: 1 JSON file from `data.sec.gov` (CIK to confirm on the SEC company search first; I believe it is 0001009829). Saved to `data/raw/` here (gitignored).
+1. ~~JAKKS Pacific companyfacts file~~: **done 24 Nov 2026** (CIK 0001009829 confirmed by the SEC name in the file).
 2. **Companyfacts for 10–20 more comparison candidates**, then the 2016 and 2017 10-K text of every candidate to search for "Toys R Us" / "Babies R Us". A first list to screen (not decided; you pick):
    Kimberly-Clark, Edgewell Personal Care, Energizer (check history: spun off in 2015), Spectrum Brands, Central Garden & Pet, Helen of Troy, WD-40, Prestige Consumer Healthcare, Kellogg, Hershey, Campbell Soup, J.M. Smucker, Conagra, McCormick, Mondelez, Hormel, Garmin, Nautilus, Johnson Outdoors, Lifetime Brands.
    Left out on purpose: **Kraft Heinz** (your rule), companies listed after 2013 (Funko, GoPro, Fitbit, Hamilton Beach Brands: no full 2013–2019 data), and makers that likely named TRU/BRU as a big customer (Newell Brands, Summer Infant, Crown Crafts).

@@ -4,7 +4,7 @@
 
 Toys "R" Us (TRU) filed for bankruptcy in September 2017 and closed its US stores by June 2018. It was one of the biggest customers of the large US toy makers: about 9 % of Hasbro's sales, about 11 % of Mattel's in 2016 and 11.3 % of JAKKS Pacific's in 2017. This project asks how their revenue moved afterwards, compared with similar consumer-products companies that did not sell through TRU.
 
-> **Status:** Session 1 — setup and data inventory. No results yet. "What I found" will go at the top of this README at the end.
+> **Status:** Session 2 — setup, data inventory, JAKKS Pacific data downloaded and checked. No results yet. "What I found" will go at the top of this README at the end.
 
 ## Plan
 
