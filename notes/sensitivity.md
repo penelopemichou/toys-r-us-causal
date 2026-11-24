@@ -7,11 +7,11 @@ Made with `src/synth_sensitivity.py` (uses `src/synth_core.py`); printout in `re
 | Run | EA weight | Average gap: 8 donors → with EA | Worst quarter: 8 donors → with EA | Verdict with EA |
 |---|---|---|---|---|
 | Mattel | 0 | 4.56 → 4.56 | 8.47 → 8.47 | no credible twin |
-| Hasbro | 0.36 | 7.41 → 6.36 | 9.75 → **12.18** (2017 Q1) | no credible twin |
+| Hasbro | 0.36 | 7.41 → 6.36 | 9.75 (2017 Q2) → **12.18** (2017 Q1) | no credible twin |
 | JAKKS | 0 | 7.73 → 7.73 | 10.82 → 10.82 | no credible twin |
 | JAKKS without 2015 Q1 | 0 | 6.65 → 6.65 | 10.12 → 10.12 | no credible twin |
 
-**In plain words:** adding a video-game company changes nothing for the two shrinking toy makers: the method gives EA no weight at all. For Hasbro, the twin becomes 60 % Garmin, 36 % EA and 4 % Deckers. The average gap gets smaller, but one quarter (2017 Q1) gets worse, so it still fails. The method minimises the squared gap over the whole pre-period, not the fit rule, so a better average can come with a worse single quarter. No twin "passes only with EA", so that label is not needed.
+**In plain words:** adding a video-game company changes nothing for the two shrinking toy makers: the method gives EA no weight at all. For Hasbro, the twin becomes 60 % Garmin, 36 % EA and 4 % Deckers. The average gap gets smaller, but the worst quarter moves and gets worse: 2017 Q2 improves (+9.75 → +4.55), while 2017 Q1 goes from −7.34 to −12.18, which breaks the "no quarter off by more than 8" limit. So it still fails. (Corrected 24 Nov 2026: an earlier version said "2017 Q1 gets worse (9.7 → 12.2)", mixing the 2017 Q2 gap before with the 2017 Q1 gap after.) The method minimises the squared gap over the whole pre-period, not the fit rule, so a better average can come with a worse single quarter. No twin "passes only with EA", so that label is not needed.
 
 ## 2. 2013 start (Mattel and Hasbro), clean donors only
 

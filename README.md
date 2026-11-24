@@ -4,16 +4,18 @@
 
 ## What I found
 
+**Short answer:** with public revenue data and these comparison companies, I can't separate what Toys "R" Us did to Mattel, Hasbro and JAKKS from everything else that happened to them.
+
 - **No convincing match for any of the three toy companies.** For each one I looked for the mix of 8 comparison companies that best followed its revenue before 2017. A match had to stay within 4 points of the company's revenue index (2016 = 100) on average, and within 8 in every quarter, a rule set before running. None did: the average misses were Mattel 4.6, Hasbro 7.4 and JAKKS 7.7 (6.7 without its unusual 2015 Q1).
-- **Nothing stands out against "fake" toy companies.** When each comparison company is treated as if it had lost Toys "R" Us, Hasbro ranks 4th of 9, Mattel 6th and JAKKS 7th for how far it drifted from its match after 2017.
-- **The toy companies did fall behind, but they were already moving differently before.** After mid-2017 the three together fell further behind the comparison companies than any of the 56 groups of three comparison companies did. Before then they were not moving in step with them, so this describes the toy companies; it does not measure what Toys "R" Us did.
-- **Taken at face value, the drops are bigger than Toys "R" Us's 8–11 % share of sales can explain.**
+- **Nothing stands out against "fake" toy companies.** When each comparison company is treated as if it had lost Toys "R" Us, Hasbro ranks 4th of 9, Mattel 6th and JAKKS 7th for how far it drifted from its match after 2017. The matches were not credible, so this is a weak check, and even 1st of 9 would only mean 'most unusual of nine' (about 0.11).
+- **The toy companies did fall behind, but they were already moving differently before.** After mid-2017 the three together fell further behind the comparison companies than any of the 56 groups of three comparison companies did. Before then they were not moving in step with them, so this describes the toy companies; it does not measure what Toys "R" Us did. The 56 groups share the same 8 comparison companies, so they are not 56 independent tests; I don't turn 'more than all 56' into a significance claim.
+- **At face value, the drop for Mattel and Hasbro is too big for Toys "R" Us alone.** Relative to the comparison companies they fell about 22% and 19% after mid-2017, roughly twice the 8-11% of sales Toys "R" Us represented (JAKKS's 9% fits inside it). That ceiling assumes no sales were replaced elsewhere and ignores indirect effects, and the before-period was not flat, so this only says other things were going on too.
 
 ## Background
 
 Toys "R" Us (TRU) filed for bankruptcy in September 2017 and closed its US stores by June 2018. It was one of the biggest customers of the large US toy makers: about 9 % of Hasbro's sales, about 11 % of Mattel's in 2016 and 11.3 % of JAKKS Pacific's in 2017. This project asks how their revenue moved afterwards, compared with similar consumer-products companies that did not sell through TRU.
 
-> **Status:** Session 7 — difference-in-differences, synthetic control and two sensitivity runs done. Details: `notes/event_study.md`, `notes/synthetic_control.md`, `notes/sensitivity.md`.
+> **Status:** Finished (24 Nov 2026): difference-in-differences, synthetic control and two sensitivity runs done. Details: `notes/event_study.md`, `notes/synthetic_control.md`, `notes/sensitivity.md`.
 
 ## Plan
 
